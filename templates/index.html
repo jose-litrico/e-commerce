@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tienda online - Catálogo de productos, carrito y pedidos">
+    <title>Tienda | Inicio</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script type="module" src="{% static 'js/main.js' %}" defer></script>
+</head>
+<body>
+    <header id="main-header" class="header">
+        <div class="header__container">
+            <a href="/" id="logo" class="header__logo">
+                <span class="header__logo-text">MiTienda</span>
+            </a>
+
+            <form id="search-form" class="header__search" action="#" method="get" role="search">
+                <label for="search-input" class="visually-hidden">Buscar productos</label>
+                <input type="search" id="search-input" class="header__search-input" name="search" placeholder="Buscar productos..." autocomplete="off" >
+                <button type="submit" id="search-btn" class="header__search-btn">Buscar</button>
+            </form>
+
+            <nav id="header-actions" class="header__actions" aria-label="Acciones de usuario">
+                <a href="#" id="btn-login" class="header__link">Iniciar sesión</a>
+                <a href="#" id="btn-register" class="header__link">Registrarse</a>
+                <a href="#cart-section" id="btn-cart" class="header__cart" aria-label="Ver carrito">
+                    <span class="header__cart-icon">🛒</span>
+                    <span id="cart-count" class="header__cart-count">0</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <nav id="category-nav" class="category-nav" aria-label="Categorías">
+        <ul id="category-list" class="category-nav__list">
+            <li class="category-nav__item">
+                <a href="#" class="category-nav__link category-nav__link--active" data-category="all">Todos</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main id="main-content" class="main">
+        <section id="hero" class="hero" aria-label="Destacado">
+            <div class="hero__content">
+                <h1 id="hero-title" class="hero__title">Bienvenido a MiTienda</h1>
+                <p id="hero-subtitle" class="hero__subtitle">Encuentra los mejores productos al mejor precio</p>
+                <a href="#product-grid" id="hero-cta" class="hero__cta">Ver productos</a>
+            </div>
+        </section>
+
+        <section id="filters-bar" class="filters" aria-label="Filtros">
+            <div class="filters__container">
+                <label for="ordering-select" class="filters__label">Ordenar por:</label>
+                <select id="ordering-select" class="filters__select" name="ordering">
+                    <option value="-created_at">Más recientes</option>
+                    <option value="price">Precio: menor a mayor</option>
+                    <option value="-price">Precio: mayor a menor</option>
+                    <option value="name">Nombre: A-Z</option>
+                    <option value="-name">Nombre: Z-A</option>
+                </select>
+            </div>
+        </section>
+
+        <section id="products-section" class="products" aria-labelledby="products-title">
+            <h2 id="products-title" class="products__title">Productos</h2>
+            <div id="product-grid" class="products__grid">
+            </div>
+        </section>
+
+        <section id="cart-section" class="cart" aria-labelledby="cart-title">
+            <h2 id="cart-title" class="cart__title">Carrito</h2>
+            <div id="cart-items" class="cart__items">
+                <p id="cart-empty" class="cart__empty">Tu carrito está vacío.</p>
+            </div>
+            <div class="cart__summary">
+                <p class="cart__total-label">Total: <span id="cart-total" class="cart__total">$0.00</span></p>
+                <button type="button" id="btn-checkout" class="cart__checkout-btn">Crear pedido</button>
+                <button type="button" id="btn-clear-cart" class="cart__clear-btn">Vaciar carrito</button>
+            </div>
+        </section>
+
+        <section id="orders-section" class="orders" aria-labelledby="orders-title">
+            <h2 id="orders-title" class="orders__title">Mis pedidos</h2>
+            <div id="orders-list" class="orders__list">
+                <p id="orders-empty" class="orders__empty">No tienes pedidos aún.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer id="main-footer" class="footer">
+        <div class="footer__container">
+            <div class="footer__brand">
+                <p id="footer-logo" class="footer__logo">MiTienda</p>
+                <p class="footer__tagline">Tu tienda online de confianza</p>
+            </div>
+
+            <nav id="footer-nav" class="footer__nav" aria-label="Enlaces del pie">
+                <ul class="footer__list">
+                    <li><a href="#" class="footer__link">Sobre nosotros</a></li>
+                    <li><a href="#" class="footer__link">Contacto</a></li>
+                    <li><a href="#" class="footer__link">Términos y condiciones</a></li>
+                    <li><a href="#" class="footer__link">Política de privacidad</a></li>
+                </ul>
+            </nav>
+
+            <p id="footer-copy" class="footer__copy">&copy; 2026 MiTienda. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

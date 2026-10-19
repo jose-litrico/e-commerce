@@ -1,0 +1,41 @@
+from django.urls import path
+
+from .views import (
+    UserListCreateView,
+    UserDetailView,
+    CategoryListCreateView,
+    CategoryDetailView,
+    ProductListCreateView,
+    ProductDetailView,
+    AddressListCreateView,
+    AddressDetailView,
+    CartDetailView,
+    CartAddItemView,
+    CartUpdateItemView,
+    CartRemoveItemView,
+    CartClearView,
+    OrderListCreateView,
+    OrderDetailView,
+    OrderUpdateStatusView,
+    UserOrderHistoryView,
+)
+
+urlpatterns = [
+    path('users/', UserListCreateView.as_view(), name='user-list-create'),
+    path('users/<int:user_id>/', UserDetailView.as_view(), name='user-detail'),
+    path('categories/', CategoryListCreateView.as_view(), name='category-list-create'),
+    path('categories/<int:category_id>/', CategoryDetailView.as_view(), name='category-detail'),
+    path('products/', ProductListCreateView.as_view(), name='product-list-create'),
+    path('products/<int:product_id>/', ProductDetailView.as_view(), name='product-detail'),
+    path('address/', AddressListCreateView.as_view(), name='address-list-create'),
+    path('address/<int:address_id>/', AddressDetailView.as_view(), name='address-detail'),
+    path('cart/<int:user_id>/', CartDetailView.as_view(), name='cart-detail'),
+    path('cart/<int:user_id>/add/', CartAddItemView.as_view(), name='cart-add-item'),
+    path('cart/<int:user_id>/items/<int:item_id>/', CartUpdateItemView.as_view(), name='cart-update-item'),
+    path('cart/<int:user_id>/items/<int:item_id>/remove/', CartRemoveItemView.as_view(), name='cart-remove-item'),
+    path('cart/<int:user_id>/clear/', CartClearView.as_view(), name='cart-clear'),
+    path('orders/', OrderListCreateView.as_view(), name='order-list-create'),
+    path('orders/<int:order_id>/', OrderDetailView.as_view(), name='order-detail'),
+    path('orders/<int:order_id>/status/', OrderUpdateStatusView.as_view(), name='order-update-status'),
+    path('users/<int:user_id>/orders/', UserOrderHistoryView.as_view(), name='user-order-history'),
+]
